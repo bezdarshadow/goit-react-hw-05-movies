@@ -52,6 +52,7 @@
     width: 230px;
     padding: 20px;
     margin: 0 auto;
+    cursor: pointer;
 }
 .buttonWrapper{
     width: max-content;
