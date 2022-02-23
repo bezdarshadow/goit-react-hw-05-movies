@@ -1,0 +1,26 @@
+.section{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.item{
+    margin-bottom: 15px;
+    border: 2px solid rgb(180, 166, 166);
+    padding: 10px;
+}
+
+.text{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.textAccent{
+    font-size: 26px;
+    color: purple;
+}
+.noReviews{
+    max-width: 1110px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 26px;
+}

@@ -1,10 +1,11 @@
-import InfoAboutFilm from "../../components/InfoAboutFilm";
+import { Outlet } from 'react-router-dom';
+import InfoAboutMovie from "../../components/InfoAboutMovie";
 
 const MovieDetailsPage = () => {
     return(
         <>
-        <h2>MovieDetailsPage</h2>
-        <InfoAboutFilm />
+        <InfoAboutMovie />
+        <Outlet/>
         </>
     )
 }

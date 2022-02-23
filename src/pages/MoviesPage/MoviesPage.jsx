@@ -1,6 +1,10 @@
+import MoviesSearch from "../../components/MoviesSearch";
+
 const MoviesPage = () => {
     return(
-        <h2>MoviesPage</h2>
+        <>
+        <MoviesSearch />
+        </>
     )
 }
 
