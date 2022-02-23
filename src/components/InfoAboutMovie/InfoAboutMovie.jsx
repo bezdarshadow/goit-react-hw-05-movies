@@ -33,7 +33,7 @@ const InfoAboutMovie = () => {
           <div className={styles.movieImage}>
           <img
             className={styles.image}
-            src={`https://image.tmdb.org/t/p/w500${info.poster_path}`}
+            src={info.poster_path ? `https://image.tmdb.org/t/p/w500${info.poster_path}` : 'https://picsum.photos/200/300'}
             alt=""
           />
           </div>

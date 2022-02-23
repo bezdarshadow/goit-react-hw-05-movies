@@ -3,7 +3,7 @@ import { lazy, Suspense } from 'react';
 
 import Cast from '../components/Cast';
 import Reviews from '../components/Reviews';
-import styles from './app.module.css';
+import './app.module.css';
 
 import LayoutPage from '../pages/LayoutPage';
 const HomePage = lazy(() => import('../pages/HomePage'));
