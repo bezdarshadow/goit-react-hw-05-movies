@@ -21,7 +21,6 @@ const InfoAboutMovie = () => {
 
     fetchInfo();
   }, [movieId]);
-
   const genres = info?.genres.map(genre => genre.name).join(', ')
 
   const goBack = ()=> navigate(from)
