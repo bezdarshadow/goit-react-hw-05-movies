@@ -4,7 +4,7 @@ import styles from './search-form.module.css'
 
 const MoviesSearchForm = ({onSubmit}) => {
     const [search, setSearch] = useState('')
-
+    console.log('zalupa')
     const getInputValue = (event) => {
         const {value} = event.target;
         setSearch(value)

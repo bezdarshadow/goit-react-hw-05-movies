@@ -23,10 +23,10 @@ const MoviesSearch = () => {
     }
     const fetchMovies = async () => {
       try {
-        setData({
-          ...data,
+        setData(prevData => ({
+          ...prevData,
           loading: true,
-        })
+        }))
         const { results } = await getMoviesBySearch(searchQuery);
         setData({
           films: [...results],
@@ -45,7 +45,7 @@ const MoviesSearch = () => {
     fetchMovies();
   }, [searchQuery]);
 
-  const handleSubmit = useCallback(query => setSearchParams({ query, page: 1 }), []);
+  const handleSubmit = useCallback(query => setSearchParams({ query, page: 1 }), [setSearchParams]);
 
   return (
     <>
