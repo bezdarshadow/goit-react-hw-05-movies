@@ -14,7 +14,9 @@ const InfoAboutMovie = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  console.log(location)
   const from = location.state?.from || "/";
+  console.log(from)
   useEffect(() => {
     const fetchInfo = async () => {
       try {
@@ -73,10 +75,10 @@ const InfoAboutMovie = () => {
 
       <ul className={styles.menu}>
         <li>
-          <Link className={styles.link} to={`/movies/${movieId}/cast`}>Cast</Link>
+          <Link className={styles.link} to={`/movies/${movieId}/cast`} state={{from: from}}>Cast</Link>
         </li>
         <li>
-          <Link className={styles.link} to={`/movies/${movieId}/reviews`}>Reviews</Link>
+          <Link className={styles.link} to={`/movies/${movieId}/reviews`} state={{from: from}}>Reviews</Link>
         </li>
       </ul>
       </>
