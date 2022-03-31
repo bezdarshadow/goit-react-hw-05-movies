@@ -6,15 +6,32 @@ import styles from './trending-list.module.css'
 
 
 const TrendingList = () => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState({
+        films: [],
+        loading: false,
+        error: null
+      });
     const location = useLocation()
     useEffect(() => {
+        
         const fetchTrends = async () => {
             try{
+                setData(prevData => ({
+                    ...prevData,
+                    loading: true,
+                  }))
                 const { results } = await getTrending();
-                setData(results)
+                setData({
+                    films: [...results],
+                    loading: false,
+                    error: null
+                })
             } catch(err) {
-                setData([])
+                setData({
+                    films: [],
+                    loading: false,
+                    error: err
+                })
             }
         }
 
@@ -22,7 +39,7 @@ const TrendingList = () => {
     }, [])
 
 
-    const trendingFilms = data.map(film => (
+    const trendingFilms = data.films.map(film => (
         <li className={styles.item} key={film.id}>
             <Link className={styles.link} to={`/movies/${film.id}`} state={{from: location}}>
                 <div>
@@ -36,9 +53,12 @@ const TrendingList = () => {
     return (
         <div className={styles.section}>
         <h2 className={styles.title}>Trending Today</h2>
-        <ul className={styles.gallery}>
+        {data.loading && <p>Идёт поиск</p>}
+        {data.error && !data.loading && <p>Ошибка поиска</p>}
+        {Boolean(data.films.length) && !data.loading && !data.error && <ul className={styles.gallery}>
             {trendingFilms}
         </ul>
+       }
         </div>
     )
 }
